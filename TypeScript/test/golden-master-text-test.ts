@@ -12,7 +12,7 @@ const items = [
     new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
     new Item("Backstage passes to a TAFKAL80ETC concert", 10, 30),
     new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
-    new Item("Backstage passes to a TAFKAL80ETC concert", 5, 30),
+    new Item("Backstage passes to a TAFKAL80ETC concert", 0, 30),
     new Item("Aged Brie", 2, 0), //
     new Item("Aged Brie", 2, 50), //
     new Item("Aged Brie", 0, 0),

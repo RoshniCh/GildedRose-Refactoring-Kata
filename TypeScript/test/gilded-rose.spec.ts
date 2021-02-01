@@ -52,14 +52,16 @@ describe('Gilded Rose', function () {
             new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
             new Item("Backstage passes to a TAFKAL80ETC concert", 10, 30),
             new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
-            new Item("Backstage passes to a TAFKAL80ETC concert", 5, 30)];
+            new Item("Backstage passes to a TAFKAL80ETC concert", 5, 30),
+            new Item("Backstage passes to a TAFKAL80ETC concert", 0, 30)];
 
         const itemsExpected = [
             new Item("Backstage passes to a TAFKAL80ETC concert", 14, 21),
             new Item("Backstage passes to a TAFKAL80ETC concert", 9, 50),
             new Item("Backstage passes to a TAFKAL80ETC concert", 9, 32),
             new Item("Backstage passes to a TAFKAL80ETC concert", 4, 50),
-            new Item("Backstage passes to a TAFKAL80ETC concert", 4, 33)];
+            new Item("Backstage passes to a TAFKAL80ETC concert", 4, 33),
+            new Item("Backstage passes to a TAFKAL80ETC concert", -1, 0)];
         
         const gildedRose = new GildedRose(items);
         const itemsUpdated = gildedRose.updateQuality();
