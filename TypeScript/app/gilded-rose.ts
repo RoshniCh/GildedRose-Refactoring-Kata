@@ -22,22 +22,16 @@ export class GildedRose {
             if (this.items[i].name == 'Aged Brie')
             {
                 this.agedBrieUpdate(this.items[i])
-            }
-            if (this.items[i].name == 'Backstage passes to a TAFKAL80ETC concert')
+            } else if (this.items[i].name.search("Backstage passes")>=0)
             {
                 this.backstageUpdate(this.items[i])
-            }
-            if (this.items[i].name == 'Sulfuras, Hand of Ragnaros')
+            } else if (this.items[i].name.search("Sulfuras")>=0)
             {
                 this.surfurasUpdate(this.items[i])
-            }
-            if (this.items[i].name == 'Conjured Mana Cake')
+            } else if (this.items[i].name.search("Conjured")>=0) 
             {
                 this.conjuredUpdate(this.items[i])
-            }
-            
-            if (this.items[i].name != 'Aged Brie' && this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert'
-            && this.items[i].name != 'Sulfuras, Hand of Ragnaros' && this.items[i].name != 'Conjured Mana Cake')
+            } else
             {
                 this.otherCatUpdate(this.items[i])
             }
