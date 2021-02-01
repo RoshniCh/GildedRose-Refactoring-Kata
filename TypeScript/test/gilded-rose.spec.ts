@@ -87,5 +87,39 @@ describe('Gilded Rose', function () {
         
     });
 
+    it('Sulfuras', function() {
+        const items = [
+            new Item("Sulfuras, Hand of Ragnaros", 0, 80), //
+            new Item("Sulfuras, Hand of Ragnaros", -1, 80)];
+
+        const itemsExpected = [
+            new Item("Sulfuras, Hand of Ragnaros", 0, 80), //
+            new Item("Sulfuras, Hand of Ragnaros", -1, 80)];
+        
+        const gildedRose = new GildedRose(items);
+        const itemsUpdated = gildedRose.updateQuality();
+        expect(itemsUpdated).to.eql(itemsExpected);
+        
+    });
+
+    it('Rest of categories', function() {
+        const items = [
+            new Item("+5 Dexterity Vest", 10, 20), //
+            new Item("Elixir of the Mongoose", 5, 7), //
+            new Item("Elixir of the Mongoose", 0, 7),
+            new Item("Conjured Mana Cake", 3, 6)];
+
+        const itemsExpected = [
+            new Item("+5 Dexterity Vest", 9, 19), //
+            new Item("Elixir of the Mongoose", 4, 6), //
+            new Item("Elixir of the Mongoose", -1, 5),
+            new Item("Conjured Mana Cake", 2, 5)];
+        
+        const gildedRose = new GildedRose(items);
+        const itemsUpdated = gildedRose.updateQuality();
+        expect(itemsUpdated).to.eql(itemsExpected);
+        
+    });
+
 
 });
