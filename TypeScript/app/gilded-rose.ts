@@ -27,12 +27,17 @@ export class GildedRose {
             {
                 this.backstageUpdate(this.items[i])
             }
-            if (this.items[i].name != 'Sulfuras, Hand of Ragnaros')
+            if (this.items[i].name == 'Sulfuras, Hand of Ragnaros')
             {
                 this.surfurasUpdate(this.items[i])
             }
+            if (this.items[i].name == 'Conjured Mana Cake')
+            {
+                this.conjuredUpdate(this.items[i])
+            }
+            
             if (this.items[i].name != 'Aged Brie' && this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert'
-            && this.items[i].name != 'Sulfuras, Hand of Ragnaros')
+            && this.items[i].name != 'Sulfuras, Hand of Ragnaros' && this.items[i].name != 'Conjured Mana Cake')
             {
                 this.otherCatUpdate(this.items[i])
             }
@@ -101,5 +106,30 @@ export class GildedRose {
         }
         return item;
     }
+
+    conjuredUpdate(item: Item) : Item
+    {
+        if (item.quality > 0)
+        {
+            item.quality = item.quality - 1
+        }
+        if (item.quality > 0)
+        {
+            item.quality = item.quality - 1
+        }
+        item.sellIn = item.sellIn - 1;
+        if (item.sellIn < 0) {
+            if (item.quality > 0)
+            {
+            item.quality = item.quality - 1
+            }
+            if (item.quality > 0)
+            {
+            item.quality = item.quality - 1
+            }
+        }
+        return item;
+    }
+    
 
 }

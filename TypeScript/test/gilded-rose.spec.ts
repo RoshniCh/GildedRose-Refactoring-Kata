@@ -38,7 +38,7 @@ describe('Gilded Rose', function () {
             new Item("Backstage passes to a TAFKAL80ETC concert", 4, 50),
             new Item("Backstage passes to a TAFKAL80ETC concert", 4, 33),
             // this conjured item does not work properly yet
-            new Item("Conjured Mana Cake", 2, 5)];
+            new Item("Conjured Mana Cake", 2, 4)];
         
         const gildedRose = new GildedRose(items);
         const itemsUpdated = gildedRose.updateQuality();
@@ -106,14 +106,11 @@ describe('Gilded Rose', function () {
         const items = [
             new Item("+5 Dexterity Vest", 10, 20), //
             new Item("Elixir of the Mongoose", 5, 7), //
-            new Item("Elixir of the Mongoose", 0, 7),
-            new Item("Conjured Mana Cake", 3, 6)];
-
+            new Item("Elixir of the Mongoose", 0, 7)];
         const itemsExpected = [
             new Item("+5 Dexterity Vest", 9, 19), //
             new Item("Elixir of the Mongoose", 4, 6), //
-            new Item("Elixir of the Mongoose", -1, 5),
-            new Item("Conjured Mana Cake", 2, 5)];
+            new Item("Elixir of the Mongoose", -1, 5)];
         
         const gildedRose = new GildedRose(items);
         const itemsUpdated = gildedRose.updateQuality();
@@ -121,5 +118,21 @@ describe('Gilded Rose', function () {
         
     });
 
+    it('Conjured', function() {
+        const items = [
+            new Item("Conjured Mana Cake", 3, 6),
+            new Item("Conjured Mana Cake", 0, 6),
+            new Item("Conjured Mana Cake", 3, 1)];
+
+        const itemsExpected = [
+            new Item("Conjured Mana Cake", 2, 4),
+            new Item("Conjured Mana Cake", -1, 2),
+            new Item("Conjured Mana Cake", 2, 0)];
+        
+        const gildedRose = new GildedRose(items);
+        const itemsUpdated = gildedRose.updateQuality();
+        expect(itemsUpdated).to.eql(itemsExpected);
+        
+    });
 
 });
